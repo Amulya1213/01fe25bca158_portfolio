@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><meta name="color-scheme" content="light"><title>Portfolio A.P.U – Amulya P. Uttarkar</title><link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Merriweather:ital,wght@0,400;0,700;1,400&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet"><style>
+:root{
+  --hero:#5a5550; --hero-bd:#6e6660; --hero-tx:#f0f0f0; --hero-mu:#c5d0cc; --hero-teal:#cdbcff;
+  --nav:#fff; --nav-tx:#3c4043; --nav-bd:#e0e0e0;
+  --teal:#5e35b1; --teal2:#4527a0; --teal-l:rgba(94,53,177,.13);
+  --bg:#f6f3fc; --bg2:#ece6f8; --card:#fff; --card-bd:#d6cbee;
+  --tx:#202124; --tx2:#3c4043; --mu:#5f6368; --div:#dadce0; --nh:60px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Lato',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;height:var(--nh);background:var(--nav);border-bottom:1px solid var(--nav-bd);display:flex;align-items:center;padding:0 24px;z-index:1000;overflow-x:auto;scrollbar-width:none;box-shadow:0 1px 4px rgba(0,0,0,.08);}
+nav::-webkit-scrollbar{display:none;}
+.nb{font-size:.95rem;font-weight:700;color:#5a5550;white-space:nowrap;margin-right:28px;flex-shrink:0;cursor:pointer;}
+.nl{padding:6px 14px;font-size:.84rem;font-weight:400;color:var(--nav-tx);cursor:pointer;white-space:nowrap;border-bottom:3px solid transparent;flex-shrink:0;line-height:var(--nh);transition:color .15s;}
+.nl:hover{color:var(--teal);}
+.nl.active{color:var(--teal);border-bottom-color:var(--teal);font-weight:700;}
+
+/* PAGES */
+.page{display:none;min-height:100vh;padding-top:var(--nh);}
+.page.active{display:block;}
+
+/* HERO */
+.hero-banner{background:var(--hero);position:relative;overflow:hidden;padding:72px 36px 60px;display:flex;align-items:center;justify-content:center;min-height:280px;}
+.hero-banner::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 1px,transparent 46px),repeating-linear-gradient(45deg,rgba(255,255,255,.025) 0,rgba(255,255,255,.025) 1px,transparent 1px,transparent 46px);}
+.hero-banner::after{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 75% at 28% 50%,rgba(94,53,177,.11),transparent 62%);}
+.hero-content{position:relative;z-index:1;text-align:center;max-width:680px;}
+.hero-label{font-family:'Source Code Pro',monospace;font-size:.7rem;color:var(--hero-teal);letter-spacing:.17em;text-transform:uppercase;margin-bottom:16px;opacity:.88;}
+.hero-title{font-family:'Merriweather',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;font-style:italic;color:var(--hero-tx);line-height:1.25;margin-bottom:10px;}
+.hero-sub{font-size:.9rem;color:var(--hero-mu);font-weight:300;}
+
+/* ABOUT + INDEX */
+.about-section{background:var(--bg2);border-bottom:1px solid var(--card-bd);padding:28px 24px;}
+.about-inner{max-width:940px;margin:0 auto;}
+.about-heading{font-family:'Merriweather',serif;font-size:1.2rem;color:var(--teal);margin-bottom:14px;font-weight:700;}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;}
+.info-row{background:var(--card);border:1px solid var(--card-bd);border-radius:8px;padding:12px 16px;}
+.info-label{font-size:.68rem;color:var(--mu);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;}
+.info-val{font-size:.94rem;color:var(--tx);font-weight:700;}
+.index-section{background:var(--bg2);border-bottom:1px solid var(--card-bd);padding:22px 24px;}
+.index-inner{max-width:940px;margin:0 auto;}
+.index-title{font-family:'Merriweather',serif;font-size:1rem;color:var(--teal);font-style:italic;margin-bottom:12px;}
+.index-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:8px;}
+.index-item{background:var(--card);border:1px solid var(--card-bd);border-radius:7px;padding:9px 13px;cursor:pointer;transition:all .16s;font-size:.81rem;color:var(--teal2);font-weight:700;display:flex;align-items:center;gap:8px;}
+.index-item:hover{background:var(--teal);color:#fff;border-color:var(--teal);}
+.index-num{font-family:'Source Code Pro',monospace;font-size:.68rem;opacity:.65;}
+
+/* CONTENT */
+.content-area{max-width:940px;margin:0 auto;padding:34px 24px 70px;}
+.sec-head{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+.sec-head-line{flex:1;height:1px;background:var(--div);}
+.sec-head h2{font-family:'Merriweather',serif;font-size:1rem;color:var(--teal2);font-weight:700;white-space:nowrap;}
+.stat-row{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:18px;}
+.stat-badge{flex:1;min-width:105px;background:var(--teal-l);border:1px solid var(--card-bd);border-radius:7px;padding:11px 13px;}
+.stat-label{font-size:.63rem;color:var(--mu);text-transform:uppercase;letter-spacing:.07em;margin-bottom:3px;}
+.stat-val{font-family:'Source Code Pro',monospace;font-size:.95rem;color:var(--teal2);font-weight:600;}
+.ch-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px;}
+.ch-pill{padding:6px 14px;border-radius:21px;font-size:.78rem;font-weight:700;cursor:pointer;border:1.5px solid var(--teal);background:transparent;color:var(--teal);transition:all .15s;}
+.ch-pill:hover{background:var(--teal);color:#fff;}
+
+/* CHAPTER INTRO */
+.ch-intro{background:var(--card);border-left:4px solid var(--teal);border-radius:0 8px 8px 0;padding:15px 18px;margin-bottom:15px;font-size:.88rem;color:var(--tx2);line-height:1.72;}
+.ch-intro strong{color:var(--teal2);}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--card-bd);border-radius:9px;padding:20px;margin-bottom:14px;transition:box-shadow .2s,border-color .2s;}
+.card:hover{box-shadow:0 2px 10px rgba(94,53,177,.09);border-color:rgba(94,53,177,.38);}
+.card-tag{font-family:'Source Code Pro',monospace;font-size:.63rem;color:var(--teal);text-transform:uppercase;letter-spacing:.1em;margin-bottom:8px;display:block;}
+
+/* LEARNING OUTCOMES */
+.lo-list{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.lo-item{display:flex;align-items:flex-start;gap:10px;background:var(--bg);border:1px solid var(--div);border-radius:6px;padding:9px 12px;}
+.lo-num{font-family:'Source Code Pro',monospace;font-size:.63rem;color:var(--teal);background:var(--teal-l);border:1px solid var(--card-bd);border-radius:4px;padding:2px 6px;flex-shrink:0;margin-top:1px;white-space:nowrap;}
+.lo-text{font-size:.83rem;color:var(--tx2);line-height:1.56;}
+
+/* TOPIC CHIPS */
+.topic-group{margin-bottom:14px;}
+.topic-group-title{font-size:.7rem;font-weight:700;color:var(--teal2);text-transform:uppercase;letter-spacing:.08em;margin-bottom:7px;}
+.t-grid{display:flex;flex-wrap:wrap;gap:7px;}
+.t-chip{background:var(--bg);border:1.5px solid var(--div);border-radius:7px;padding:7px 12px;font-size:.8rem;color:var(--tx2);cursor:pointer;display:flex;align-items:center;gap:7px;transition:all .15s;user-select:none;}
+.t-chip:hover{background:var(--teal-l);border-color:var(--teal);color:var(--teal2);}
+.t-chip.open{background:var(--teal-l);border-color:var(--teal);color:var(--teal2);border-radius:7px 7px 0 0;}
+.t-dot{width:6px;height:6px;border-radius:50%;background:var(--teal);flex-shrink:0;}
+.t-arrow{font-size:.65rem;opacity:.55;transition:transform .2s;margin-left:4px;display:inline-block;}
+.t-chip.open .t-arrow{transform:rotate(180deg);}
+.t-expand{display:none;width:100%;background:rgba(94,53,177,.06);border:1.5px solid var(--teal);border-top:none;border-radius:0 0 8px 8px;padding:14px 17px;margin-bottom:8px;font-size:.83rem;color:var(--tx2);line-height:1.75;}
+.t-expand.show{display:block;}
+.t-expand strong{color:var(--teal2);}
+.t-formula{font-family:'Source Code Pro',monospace;font-size:.79rem;background:rgba(94,53,177,.1);padding:6px 12px;border-radius:5px;margin:7px 0;display:block;color:var(--teal2);border-left:3px solid var(--teal);}
+.t-example{background:var(--card);border:1px solid var(--card-bd);border-radius:5px;padding:9px 13px;margin-top:8px;font-size:.81rem;line-height:1.65;}
+.t-example strong{color:var(--teal);}
+.t-expand ul{padding-left:16px;margin-top:5px;}
+.t-expand ul li{margin-bottom:4px;}
+
+/* SCHEDULE */
+.sched-list{list-style:none;}
+.sched-item{border-bottom:1px solid var(--div);padding:12px 0;}
+.sched-item:last-child{border-bottom:none;}
+.sched-hdr{display:flex;align-items:flex-start;gap:10px;margin-bottom:4px;}
+.sched-num{font-family:'Source Code Pro',monospace;font-size:.68rem;color:var(--mu);min-width:24px;padding-top:2px;}
+.sched-title{font-size:.84rem;font-weight:700;color:var(--tx);}
+.sched-body{font-size:.8rem;color:var(--mu);line-height:1.67;padding-left:34px;}
+
+/* GRAPHS */
+.graph-wrap{background:var(--bg);border:1px solid var(--div);border-radius:8px;padding:14px;margin-top:10px;}
+.graph-title{font-family:'Source Code Pro',monospace;font-size:.61rem;color:var(--teal2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:9px;}
+canvas{display:block;max-width:100%;border-radius:4px;}
+
+/* BOX PLOT */
+.boxplot-wrap{background:var(--bg);border:1.5px solid #222;border-radius:8px;padding:16px 18px;margin-top:10px;}
+
+/* LAB */
+.lab-prog-card{background:var(--card);border:1px solid var(--card-bd);border-radius:10px;overflow:hidden;margin-bottom:18px;}
+.lab-prog-header{background:var(--hero);position:relative;overflow:hidden;padding:16px 20px 12px;}
+.lab-prog-header::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(135deg,rgba(255,255,255,.03) 0,rgba(255,255,255,.03) 1px,transparent 1px,transparent 38px);}
+.lab-prog-num{position:relative;font-family:'Source Code Pro',monospace;font-size:.64rem;color:var(--hero-teal);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px;display:block;}
+.lab-prog-title{position:relative;font-family:'Merriweather',serif;font-size:.95rem;font-style:italic;color:var(--hero-tx);font-weight:700;}
+.prog-section{padding:14px 19px;border-bottom:1px solid var(--div);}
+.prog-section:last-child{border-bottom:none;}
+.prog-sec-label{font-size:.63rem;color:var(--teal);text-transform:uppercase;letter-spacing:.09em;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.prog-sec-label::after{content:'';flex:1;height:1px;background:var(--div);}
+.question-box{background:var(--bg2);border:1px solid var(--card-bd);border-radius:7px;padding:11px 14px;margin-bottom:9px;font-size:.83rem;color:var(--tx2);line-height:1.64;}
+.question-box strong{color:var(--teal2);}
+pre.code{font-family:'Source Code Pro',monospace;font-size:.75rem;background:#4a4440;color:#cdbcff;border-radius:8px;padding:13px 15px;border:1px solid #6e6660;line-height:1.82;overflow-x:auto;white-space:pre;}
+.output-box{background:#1d1830;border:1px solid var(--teal2);border-radius:7px;padding:10px 13px;margin-top:8px;}
+.output-label{font-family:'Source Code Pro',monospace;font-size:.59rem;color:var(--hero-teal);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px;}
+.output-content{font-family:'Source Code Pro',monospace;font-size:.78rem;color:#e3d9ff;line-height:1.75;}
+.graph-out{background:var(--bg);border:1px solid var(--div);border-radius:7px;padding:11px;margin-top:8px;}
+.graph-out-label{font-family:'Source Code Pro',monospace;font-size:.59rem;color:var(--teal2);text-transform:uppercase;letter-spacing:.07em;margin-bottom:8px;}
+
+::-webkit-scrollbar{width:5px;height:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--card-bd);border-radius:3px;}
+
+:root{--nh:60px}nav{top:0;height:calc(60px + env(safe-area-inset-top,0px));padding-top:env(safe-area-inset-top,0px)}
+.nl{line-height:60px}.page{padding-top:calc(60px + env(safe-area-inset-top,0px))}
+html{scroll-padding-top:calc(60px + env(safe-area-inset-top,0px))}body{padding-bottom:env(safe-area-inset-bottom,0px)}
+.svgw{background:var(--bg);border:1px solid var(--div);border-radius:8px;padding:12px;margin-top:10px}
+.svgw svg{width:100%;height:auto;display:block}.svgw .graph-title{margin-bottom:6px}
+.cap{font-size:.78rem;color:var(--mu);line-height:1.6;margin-top:8px}
+.foot{text-align:center;font-size:.74rem;color:var(--mu);padding:22px 12px;border-top:1px solid var(--div)}
+.unit-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.unit{background:var(--card);border:1px solid var(--card-bd);border-radius:8px;padding:13px 16px}
+.unit h4{font-family:'Merriweather',serif;font-size:.9rem;color:var(--teal2);margin-bottom:7px}
+.unit div{font-size:.8rem;color:var(--tx2);padding:3px 0;display:flex;justify-content:space-between;gap:8px}
+.unit div b{font-family:'Source Code Pro',monospace;font-size:.7rem;color:var(--teal)}
+</style></head><body><nav><span class="nb" onclick="showPage('home')">Portfolio A.P.U</span><span class="nl active" id="nl-home" onclick="showPage('home')">Home</span><span class="nl" id="nl-mat" onclick="showPage('mat')">Matrices</span><span class="nl" id="nl-sle" onclick="showPage('sle')">System of Linear Equations</span><span class="nl" id="nl-vs" onclick="showPage('vs')">Vector Space</span><span class="nl" id="nl-gr" onclick="showPage('gr')">Graph Theory</span><span class="nl" id="nl-tr" onclick="showPage('tr')">Trees</span><span class="nl" id="nl-lab" onclick="showPage('lab')">Lab Programs</span></nav><div id="home" class="page active"><div class="hero-banner"><div class="hero-content"><div class="hero-label">// Academic Portfolio · Linear Algebra</div><div class="hero-title">Amulya P. Uttarkar</div><div class="hero-sub">KLE Tech Gokul Campus, Hubli &nbsp;·&nbsp; 01FE25BCA158</div></div></div><div class="about-section"><div class="about-inner"><div class="about-heading">About the Portfolio</div><div class="info-grid"><div class="info-row"><div class="info-label">Student Name</div><div class="info-val">Amulya P. Uttarkar</div></div><div class="info-row"><div class="info-label">USN</div><div class="info-val">01FE25BCA158</div></div><div class="info-row"><div class="info-label">Course</div><div class="info-val">Linear Algebra</div></div><div class="info-row"><div class="info-label">Course Code</div><div class="info-val">26EBCB201 / 26ECIB201</div></div><div class="info-row"><div class="info-label">Semester</div><div class="info-val">3rd Semester</div></div><div class="info-row"><div class="info-label">Department</div><div class="info-val">Computer Applications (BCA)</div></div><div class="info-row"><div class="info-label">Institution</div><div class="info-val">KLE Tech Gokul Campus, Hubli</div></div><div class="info-row"><div class="info-label">Total Theory Hours</div><div class="info-val">45 + Python Lab</div></div></div></div></div><div class="index-section"><div class="index-inner"><div class="index-title">Index</div><div class="index-grid"><div class="index-item" onclick="showPage('mat')"><span class="index-num">01</span>Matrices</div><div class="index-item" onclick="showPage('sle')"><span class="index-num">02</span>System of Linear Equations</div><div class="index-item" onclick="showPage('vs')"><span class="index-num">03</span>Vector Space</div><div class="index-item" onclick="showPage('gr')"><span class="index-num">04</span>Graph Theory</div><div class="index-item" onclick="showPage('tr')"><span class="index-num">05</span>Trees</div><div class="index-item" onclick="showPage('lab')"><span class="index-num">06</span>Lab Programs</div></div></div></div><div class="content-area"><div class="sec-head"><h2>Navigate by Chapter</h2><div class="sec-head-line"></div></div><div class="ch-pills"><div class="ch-pill" onclick="showPage('mat')">Matrices</div><div class="ch-pill" onclick="showPage('sle')">System of Linear Equations</div><div class="ch-pill" onclick="showPage('vs')">Vector Space</div><div class="ch-pill" onclick="showPage('gr')">Graph Theory</div><div class="ch-pill" onclick="showPage('tr')">Trees</div><div class="ch-pill" onclick="showPage('lab')">Lab Programs</div></div><div class="stat-row"><div class="stat-badge"><div class="stat-label">Theory Hours</div><div class="stat-val">45</div></div><div class="stat-badge"><div class="stat-label">Units</div><div class="stat-val">03</div></div><div class="stat-badge"><div class="stat-label">Chapters</div><div class="stat-val">05</div></div><div class="stat-badge"><div class="stat-label">Lab Programs</div><div class="stat-val">9</div></div><div class="stat-badge"><div class="stat-label">Course Outcomes</div><div class="stat-val">CO1–CO5</div></div></div><div class="sec-head"><h2>Course Structure</h2><div class="sec-head-line"></div></div><div class="unit-grid"><div class="unit"><h4>Unit 1</h4><div>1. Matrices<b>07 h</b></div><div>2. System of linear equations<b>10 h</b></div><div>Python Lab<b>12 h</b></div></div><div class="unit"><h4>Unit 2</h4><div>3. Vector space<b>08 h</b></div><div>4. Graph theory<b>10 h</b></div><div>Python Lab<b>12 h</b></div></div><div class="unit"><h4>Unit 3</h4><div>5. Trees<b>10 h</b></div></div></div><div class="svgw"><div class="graph-title">Course map</div><svg viewBox="0 0 520 150" xmlns="http://www.w3.org/2000/svg"><defs><marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#4527a0"/></marker></defs><rect x="190" y="8" width="140" height="34" rx="8" fill="#5e35b1" stroke="#4527a0" stroke-width="1.5"/><text x="260.0" y="29.0" font-size="12" fill="#fff" text-anchor="middle" font-weight="400" font-family="Lato,sans-serif"><tspan x="260.0" dy="0">Linear Algebra</tspan></text><line x1="260" y1="42" x2="60" y2="78" stroke="#4527a0" stroke-width="1.6" marker-end="url(#ah)"/><rect x="5" y="78" width="110" height="56" rx="8" fill="rgba(94,53,177,.13)" stroke="#5e35b1" stroke-width="1.5"/><text x="60.0" y="103.7" font-size="10.5" fill="#202124" text-anchor="middle" font-weight="400" font-family="Lato,sans-serif"><tspan x="60.0" dy="0">Matrices</tspan><tspan x="60.0" dy="12.6">&amp; Systems</tspan></text><line x1="260" y1="42" x2="190" y2="78" stroke="#4527a0" stroke-width="1.6" marker-end="url(#ah)"/><rect x="135" y="78" width="110" height="56" rx="8" fill="rgba(94,53,177,.13)" stroke="#5e35b1" stroke-width="1.5"/><text x="190.0" y="103.7" font-size="10.5" fill="#202124" text-anchor="middle" font-weight="400" font-family="Lato,sans-serif"><tspan x="190.0" dy="0">Vector</tspan><tspan x="190.0" dy="12.6">Space</tspan></text><line x1="260" y1="42" x2="320" y2="78" stroke="#4527a0" stroke-width="1.6" marker-end="url(#ah)"/><rect x="265" y="78" width="110" height="56" rx="8" fill="rgba(94,53,177,.13)" stroke="#5e35b1" stroke-width="1.5"/><text x="320.0" y="103.7" font-size="10.5" fill="#202124" text-anchor="middle" font-weight="400" font-family="Lato,sans-serif"><tspan x="320.0" dy="0">Graph</tspan><tspan x="320.0" dy="12.6">Theory</tspan></text><line x1="260" y1="42" x2="450" y2="78" stroke="#4527a0" stroke-width="1.6" marker-end="url(#ah)"/><rect x="395" y="78" width="110" height="56" rx="8" fill="rgba(94,53,177,.13)" stroke="#5e35b1" stroke-width="1.5"/><text x="450.0" y="103.7" font-size="10.5" fill="#202124" text-anchor="middle" font-weight="400" font-family="Lato,sans-serif"><tspan x="450.0" dy="0">Trees &amp;</tspan><tspan x="450.0" dy="12.6">Algorithms</tspan></text></svg></div><div style="height:16px"></div><div class="card"><span class="card-tag">Prerequisites</span><div class="ch-intro" style="margin:0">This course requires basic mathematics up to PUC-II or equivalent.</div></div><div class="card"><span class="card-tag">Course Outcomes (COs)</span><ul class="lo-list"><li class="lo-item"><span class="lo-num">CO1</span><span class="lo-text">Apply matrix operations and solve systems of linear equations using direct and iterative methods.</span></li><li class="lo-item"><span class="lo-num">CO2</span><span class="lo-text">Analyze eigenvalues and eigenvectors and apply them to engineering problems.</span></li><li class="lo-item"><span class="lo-num">CO3</span><span class="lo-text">Understand vector spaces, linear
